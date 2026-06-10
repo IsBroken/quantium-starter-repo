@@ -23,6 +23,7 @@ app.layout = html.Div(
 
         html.H1(
             "Soul Foods Pink Morsel Sales Dashboard",
+            id ="header",
             style={
                 "textAlign": "center",
                 "color": "#2c3e50",
@@ -41,7 +42,7 @@ app.layout = html.Div(
 
                 dcc.RadioItems(
 
-                    id="region-filter",
+                    id="region-picker",
 
                     options=[
                         {"label": "All", "value": "all"},
@@ -82,7 +83,7 @@ app.layout = html.Div(
 
 @app.callback(
     Output("sales-chart", "figure"),
-    Input("region-filter", "value")
+    Input("region-picker", "value")
 )
 
 def update_chart(selected_region):
